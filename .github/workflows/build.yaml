@@ -19,4 +19,6 @@ jobs:
 
       - name: Run python program
         working-directory: ./sample
+        env:
+          MESSAGE: "We are on Github Actions"
         run: poetry run start
