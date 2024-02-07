@@ -1,0 +1,19 @@
+name: Send SMS
+run-name: Twilio SMS Action
+on:
+  push:
+    branches:
+      - main
+jobs:
+  secret-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Sending SMS Notification'
+        uses: twilio-labs/actions-sms@v1
+        with:
+          fromPhoneNumber: '+16592349808'
+          toPhoneNumber: '+918796079680'
+          message: 'SMS with <3 from GitHub Actions!'
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
+          TWILIO_API_SECRET: ${{ secrets.TWILIO_API_SECRET }}
