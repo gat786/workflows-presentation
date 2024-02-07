@@ -1,0 +1,22 @@
+name: Build Python Application
+run-name: Build Python Application
+on:
+  push:
+    branches:
+      - main
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Poetry and dependencies
+        working-directory: ./sample
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          poetry install
+
+      - name: Run python program
+        working-directory: ./sample
+        run: poetry run start
