@@ -16,5 +16,5 @@ jobs:
           echo "Today, I feel like $FEELING"
       - name: Set an Environment variable from within script
         run: |
-          echo "FEELING=VERY_HAPPY" >> $GITHUB_ENV
+          echo "FEELING=VERY_HAPPY" >> "$GITHUB_ENV"
           echo "Now I am feeling $FEELING"
