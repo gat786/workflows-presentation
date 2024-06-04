@@ -1,0 +1,20 @@
+name: Use Environment Variables
+run-name: use-env-variable
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Script with a Env variable
+        env:
+          FEELING: "YIPPEEEE"
+        run: |
+          echo "Today, I feel like $FEELING"
+      - name: Set an Environment variable from within script
+        run: |
+          echo "FEELING=VERY_HAPPY" >> $GITHUB_ENV
+          echo "Now I am feeling $FEELING"
